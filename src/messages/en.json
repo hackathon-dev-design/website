@@ -1,5 +1,21 @@
 {
   "Index": {
-    "title": "Hello World"
+    "title": "Hackathon",
+    "title2": "Dev & Design",
+    "date": "Fall 2024",
+    "location": "Montréal",
+    "description": "Let's boost the collaboration between developers and designers to solve real life problems.",
+    "become sponsor": "Become Sponsor",
+    "volunteer": "Volunteer",
+    "email": "Email",
+    "subscribe": "Subscribe",
+    "no spam": "We will keep you up to date without any spam. We promise!",
+    "help as a volunteer": "Help at a volunteer!",
+    "volunteer description": "Organizing such a great event is not easy. We need your help to make it happen! All skills (e.g. graphical design, funding, social medias, etc.) are welcome!",
+    "volunteer benefit": "As a volunteer, you will be part of the organization team and meet a lot of people in the Dev & Design community.",
+    "contact us": "Contact us at ",
+    "help as a sponsor": "Become a sponsor!",
+    "sponsor description": "Organizing such a great event is not easy. We need your help to make it happen! As a sponsor, you have different ways to help us (financial, in-kind, media, community).",
+    "sponsor benefit": "In exchange, we will communicate about you at every steps of the event. It is a great opportunity to promote your products or services. It is also a great way to accelerate your recruitment and highlight your open positions."
   }
 }

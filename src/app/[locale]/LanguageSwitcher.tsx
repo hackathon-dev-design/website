@@ -1,35 +1,58 @@
 'use client'
-import Link from 'next-intl/link'
+import { Fragment } from 'react'
+import Link from 'next/link'
 import { usePathname } from 'next-intl/client'
+import { GlobeAltIcon } from '@heroicons/react/24/outline'
+import { Menu, Transition } from '@headlessui/react'
+
+const locales = ['en', 'fr']
 
 export interface LanguageSwitcherProps {
   locale: string
 }
 
-export default function LanguageSwitcher({ locale }: LanguageSwitcherProps) {
+export default function LanguageSwitcher({
+  locale: currentLocale,
+}: LanguageSwitcherProps) {
   const pathname = usePathname()
 
   return (
-    <Link
-      href={pathname}
-      locale={locale === 'en' ? 'fr' : 'en'}
-      className="fixed top-10 right-10 cursor-pointer text-gray-400 transition-colors hover:text-white flex flex-col items-center"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth="1.5"
-        stroke="currentColor"
-        className="w-6 h-6"
+    <Menu as="div" className="relative inline-block text-left">
+      <Menu.Button className="cursor-pointer text-gray-300 transition-colors hover:text-white flex flex-row items-center border-2 border-transparent hover:border-white py-1 px-2 rounded-3xl">
+        <div className="uppercase px-1 font-semibold">{currentLocale}</div>
+        <GlobeAltIcon className="h-8 w-8" />
+      </Menu.Button>
+      <Transition
+        as={Fragment}
+        enter="transition ease-out duration-300"
+        enterFrom="transform opacity-0 scale-75"
+        enterTo="transform opacity-100 scale-100"
+        leave="transition ease-in duration-100"
+        leaveFrom="transform opacity-100 scale-100"
+        leaveTo="transform opacity-0 scale-75"
       >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
-        />
-      </svg>
-      {locale}
-    </Link>
+        <Menu.Items className="absolute right-0 z-10 mt-2 mr-5 backdrop-blur-md bg-sky-900/20 border-[1px] border-white/30 rounded-lg rounded-tr-none origin-top-right shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+          <div className="p-2 pl-8 pr-6 flex flex-col items-end">
+            {locales.map((locale) => (
+              <Menu.Item key={locale}>
+                {({ active }) => (
+                  <Link
+                    href={`/${locale}${pathname}`}
+                    className={`flex items-center font-semibold text-gray-400 hover:text-white transition-colors uppercase ${
+                      (active || currentLocale === locale) && 'text-white'
+                    }`}
+                  >
+                    {currentLocale === locale && (
+                      <div className="bg-white rounded-full h-1.5 w-1.5 mr-1.5" />
+                    )}{' '}
+                    {locale}
+                  </Link>
+                )}
+              </Menu.Item>
+            ))}
+          </div>
+        </Menu.Items>
+      </Transition>
+    </Menu>
   )
 }

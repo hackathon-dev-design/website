@@ -1,5 +1,21 @@
 {
   "Index": {
-    "title": "Bonjour"
+    "title": "Hackathon",
+    "title2": "Dev & Design",
+    "date": "Automne 2024",
+    "location": "Montréal",
+    "description": "Améliorons la collaboration entre développeurs et concepteurs pour résoudre des problèmes de la vrai vie.",
+    "become sponsor": "Devenir Partenaire",
+    "volunteer": "Bénévolat",
+    "email": "Courriel",
+    "subscribe": "S'inscrire",
+    "no spam": "Nous vous garderons au courant sans pollution. Promis !",
+    "help as a volunteer": "Deviens Bénévole !",
+    "volunteer description": "Organiser un tel événement n'est pas chose facile. Nous avons besoin de ton aide pour en faire une réalité. Toute aide est bienvenue (e.g. conception graphique, financement, réseaux sociaux, etc.) !",
+    "volunteer benefit": "En tant que bénévole, tu feras parti de l'équipe d'organisation et rencontrera beaucoup de monde de la communauté du développement et de la conception.",
+    "contact us": "Contacte nous à ",
+    "help as a sponsor": "Deviens un Partenaire !",
+    "sponsor description": "Organiser un tel événement n'est pas chose facile. Nous avons besoin de ton aide pour en faire une réalité. En tant que partenaire, tu as différents moyens de nous aider (financement, logistique, media, communauté).",
+    "sponsor benefit": "En échange, nous communiquerons à ton sujet à toutes les étapes de l'événement. C'est une belle opportunité pour promouvoir des produits ou services. C'est aussi un bon moyen d'accélérer son recruitement et de mettre en valeur les postes ouverts."
   }
 }
