@@ -38,7 +38,7 @@ export default function LanguageSwitcher({
                 {({ active }) => (
                   <Link
                     href={`/${locale}${pathname}`}
-                    className={`flex items-center font-semibold text-gray-400 hover:text-white transition-colors uppercase ${
+                    className={`flex items-center font-semibold py-0.5 text-gray-400 hover:text-white transition-colors uppercase ${
                       (active || currentLocale === locale) && 'text-white'
                     }`}
                   >
