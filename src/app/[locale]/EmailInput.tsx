@@ -32,7 +32,7 @@ export default function EmailInput({ url, locale }: EmailInputProps) {
     if (!url) return
 
     jsonp(
-      `${url}&EMAIL=${email}&TRANSLATE=${locale}`,
+      `${url}&EMAIL=${email}&LANGUAGE=${locale}`,
       { param: 'c' },
       (_, data) => {
         setMessage(data)

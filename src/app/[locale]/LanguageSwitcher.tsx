@@ -44,7 +44,7 @@ export default function LanguageSwitcher({
                   >
                     {currentLocale === locale && (
                       <div className="bg-white rounded-full h-1.5 w-1.5 mr-1.5" />
-                    )}{' '}
+                    )}
                     {locale}
                   </Link>
                 )}
