@@ -1,6 +1,4 @@
-# boilerplate-next
-
-A boilerplate for [Next.js](https://nextjs.org/)
+# Hackathon website
 
 ## Getting Started
 
@@ -37,5 +35,6 @@ Please read [CONTRIBUTING.md](CONTRIBUTING.md) for details on our code of conduc
 - Commitlint
 - Github Actions
 - [Next-intl](https://next-intl-docs.vercel.app/)
-
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+- Mailchimp
+- Heroicons
+- [Headless UI](https://headlessui.com/)
