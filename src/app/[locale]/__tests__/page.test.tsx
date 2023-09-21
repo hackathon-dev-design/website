@@ -29,10 +29,6 @@ describe('Page', () => {
   it('should render a deployment description', () => {
     render(<Page params={{ locale: 'en' }} />)
 
-    expect(
-      screen.getByText(
-        /Instantly deploy your Next.js site to a shareable URL with Vercel./i
-      )
-    ).toBeInTheDocument()
+    expect(screen.queryByTestId('title')).toBeInTheDocument()
   })
 })

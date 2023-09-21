@@ -20,9 +20,8 @@ export default function Index({ params }: IndexProps) {
       <Image
         src="/assets/images/background.png"
         alt="red and blue background"
-        layout="fill"
-        objectFit="cover"
-        className="absolute inset-0 z-[-1] blur-xl"
+        fill
+        className="absolute !inset-0 z-[-1] blur-xl"
       />
       <div className="relative flex-1 flex flex-col items-stretch justify-center h-full p-5 md:px-10 bg-black/80 ">
         <Header>
@@ -33,7 +32,10 @@ export default function Index({ params }: IndexProps) {
         <div>
           <div className="flex flex-col-reverse lg:flex-row items-center justify-center max-w-screen-xl m-auto gap-10 py-10">
             <section className="flex-1 flex flex-col items-center lg:items-start justify-center gap-6">
-              <h1 className="text-6xl font-bold text-center lg:text-left leading-[4.3rem]">
+              <h1
+                data-testid="title"
+                className="text-6xl font-bold text-center lg:text-left leading-[4.3rem]"
+              >
                 {t('title')}
                 <span className="block uppercase">{t('title2')}</span>
               </h1>
@@ -53,7 +55,6 @@ export default function Index({ params }: IndexProps) {
                 alt="hero"
                 width={500}
                 height={500}
-                objectFit="contain"
                 className="max-w-xs lg:max-w-2xl"
               />
             </div>

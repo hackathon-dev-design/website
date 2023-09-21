@@ -20,6 +20,8 @@ export async function generateMetadata({
   const title = `${t('Index.title')} ${t('Index.title2')}`
   const description = t('Index.description')
 
+  const url = process.env.BASE_URL
+
   return {
     title,
     description,
@@ -28,13 +30,14 @@ export async function generateMetadata({
     openGraph: {
       title,
       description,
-      url: 'https://hackathon-dev-design.vercel.app',
+      url,
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
     },
+    metadataBase: new URL(url),
   }
 }
 
