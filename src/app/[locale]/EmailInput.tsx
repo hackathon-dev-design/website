@@ -5,65 +5,71 @@ import jsonp from 'jsonp'
 import {
   ExclamationCircleIcon,
   ArrowRightIcon,
-  InformationCircleIcon,
+  CheckCircleIcon,
 } from '@heroicons/react/24/outline'
 
 import Loader from '@/components/atoms/Loader'
 
 export interface EmailInputProps {
-  url: string
   locale: string
 }
 
-export default function EmailInput({ url, locale }: EmailInputProps) {
+const isError = (status: number) => status !== 200
+
+export default function EmailInput({ locale }: EmailInputProps) {
   const t = useTranslations('Index')
 
   const [email, setEmail] = useState('')
   const [loading, setLoading] = useState(false)
-  const [{ msg, result }, setMessage] = useState({
-    msg: '',
-    result: '',
+  const [{ status, detail }, setMessage] = useState({
+    status: 0,
+    detail: '',
   })
 
-  const onSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     setLoading(true)
     event.preventDefault()
 
-    if (!url) return
+    const response = await fetch('/api/subscribe', {
+      method: 'POST',
+      body: JSON.stringify({ email, language: locale }),
+    })
 
-    jsonp(
-      `${url}&EMAIL=${email}&LANGUAGE=${locale}`,
-      { param: 'c' },
-      (_, data) => {
-        setMessage(data)
-        setLoading(false)
-      }
-    )
+    setMessage({
+      status: response.status,
+      detail: isError(response.status)
+        ? t('subscribeAnswer.error')
+        : t('subscribeAnswer.success'),
+    })
+
+    setLoading(false)
   }
 
-  if (msg) {
+  if (detail) {
     return (
       <div>
         <div
           className={`font-bold ${
-            result === 'error' ? 'text-red-500' : 'text-green-500'
+            isError(status) ? 'text-red-500' : 'text-green-500'
           }`}
         >
-          {result === 'error' ? (
+          {isError(status) ? (
             <ExclamationCircleIcon className="w-10 h-10 inline-block mr-2" />
           ) : (
-            <InformationCircleIcon className="w-10 h-10 inline-block mr-2" />
+            <CheckCircleIcon className="w-10 h-10 inline-block mr-2" />
           )}
-          <span>{msg}</span>
+          <span>{detail}</span>
         </div>
-        {result === 'error' && (
+        {isError(status) ? (
           <button
             className="mt-2 font-semibold text-gray-300 group"
-            onClick={() => setMessage({ msg: '', result: '' })}
+            onClick={() => setMessage({ status: 0, detail: '' })}
           >
             {t('retry')}
             <ArrowRightIcon className="inline-block h-5 w-5 stroke-[3] ml-2 group-hover:ml-3 transition-all" />
           </button>
+        ) : (
+          <p className="text-xs text-white/60 pt-1">{t('no spam')}</p>
         )}
       </div>
     )

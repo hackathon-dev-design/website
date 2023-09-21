@@ -15,7 +15,7 @@ function Popup({ open, onClose, children }: PopupProps) {
       <Dialog as="div" className="relative z-10" onClose={onClose}>
         <Transition.Child
           as={Fragment}
-          enter="ease-out duration-300"
+          enter="ease-out duration-500"
           enterFrom="opacity-0"
           enterTo="opacity-100"
           leave="ease-in duration-200"
@@ -29,7 +29,7 @@ function Popup({ open, onClose, children }: PopupProps) {
           <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
             <Transition.Child
               as={Fragment}
-              enter="ease-out duration-300"
+              enter="ease-out duration-500"
               enterFrom="opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
               enterTo="opacity-100 translate-y-0 sm:scale-100"
               leave="ease-in duration-200"
@@ -44,10 +44,10 @@ function Popup({ open, onClose, children }: PopupProps) {
                 <div className="absolute top-2 right-2">
                   <button
                     aria-label="close popup"
-                    className="text-gray-500 hover:text-white transition-colors p-1"
+                    className="text-gray-500 group hover:text-white transition-colors p-1"
                     onClick={onClose}
                   >
-                    <XMarkIcon className="w-7 h-7" />
+                    <XMarkIcon className="w-7 h-7 group-hover:stroke-2 transition-all" />
                   </button>
                 </div>
 

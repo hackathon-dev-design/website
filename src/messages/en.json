@@ -17,6 +17,10 @@
     "help as a sponsor": "Become a sponsor!",
     "sponsor description": "Organizing such a great event is not easy. We need your help to make it happen! As a sponsor, you have different ways to help us (financial, in-kind, media, community).",
     "sponsor benefit": "In exchange, we will communicate about you at every steps of the event. It is a great opportunity to promote your products or services. It is also a great way to accelerate your recruitment and highlight your open positions.",
-    "retry": "Retry"
+    "retry": "Retry",
+    "subscribeAnswer": {
+      "success": "Your email was successfully added to our mailing list.",
+      "error": "An error happened while adding your email to our mailing list."
+    }
   }
 }

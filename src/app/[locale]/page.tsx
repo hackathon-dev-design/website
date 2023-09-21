@@ -15,8 +15,6 @@ export interface IndexProps {
 export default function Index({ params }: IndexProps) {
   const t = useTranslations('Index')
 
-  console.log('env', process.env.MAILCHIMP_URL)
-
   return (
     <main className="relative min-h-screen w-full flex flex-col items-stretch justify-stretch">
       <Image
@@ -46,10 +44,7 @@ export default function Index({ params }: IndexProps) {
                 {t('description')}
               </h3>
               <div>
-                <EmailInput
-                  url={process.env.MAILCHIMP_URL ?? ''}
-                  locale={params.locale}
-                />
+                <EmailInput locale={params.locale} />
               </div>
             </section>
             <div className="flex-1">
