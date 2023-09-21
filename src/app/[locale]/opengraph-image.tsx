@@ -1,7 +1,10 @@
 import { ImageResponse } from 'next/server'
+import { Inter } from 'next/font/google'
 
 // Route segment config
 export const runtime = 'edge'
+
+const inter = Inter({ subsets: ['latin'] })
 
 // Image metadata
 export const alt = 'Hackathon Dev & Design'
@@ -14,11 +17,6 @@ export const contentType = 'image/png'
 
 // @see https://nextjs.org/docs/app/api-reference/file-conventions/metadata/opengraph-image#generate-images-using-code-js-ts-tsx
 export default async function Image() {
-  // Font
-  const interSemiBold = fetch(
-    new URL('./Inter-SemiBold.ttf', import.meta.url)
-  ).then((res) => res.arrayBuffer())
-
   return new ImageResponse(
     (
       // ImageResponse JSX element
@@ -41,14 +39,6 @@ export default async function Image() {
       // For convenience, we can re-use the exported opengraph-image
       // size config to also set the ImageResponse's width and height.
       ...size,
-      fonts: [
-        {
-          name: 'Inter',
-          data: await interSemiBold,
-          style: 'normal',
-          weight: 400,
-        },
-      ],
     }
   )
 }
