@@ -20,7 +20,7 @@ export async function generateMetadata({
   const title = `${t('Index.title')} ${t('Index.title2')}`
   const description = t('Index.description')
 
-  const url = process.env.BASE_URL
+  const url = process.env.BASE_URL ?? ''
 
   return {
     title,
