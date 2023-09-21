@@ -5,6 +5,8 @@
 First, run the development server:
 
 ```bash
+vercel env pull
+
 pnpm install
 
 pnpm dev
