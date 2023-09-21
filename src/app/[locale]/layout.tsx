@@ -1,15 +1,11 @@
-import { useLocale } from 'next-intl'
 import { notFound } from 'next/navigation'
-import { NextIntlClientProvider } from 'next-intl'
+import { useLocale, NextIntlClientProvider, createTranslator } from 'next-intl'
 import { Analytics } from '@vercel/analytics/react'
-
-import '../globals.css'
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 
-const inter = Inter({ subsets: ['latin'] })
+import '../globals.css'
 
-import { createTranslator } from 'next-intl'
+const inter = Inter({ subsets: ['latin'] })
 
 interface Params {
   locale: string
