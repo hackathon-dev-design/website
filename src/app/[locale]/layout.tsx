@@ -15,6 +15,7 @@ interface Params {
   locale: string
 }
 
+// @see https://nextjs.org/docs/app/api-reference/functions/generate-metadata
 export async function generateMetadata({
   params: { locale },
 }: {
@@ -23,9 +24,24 @@ export async function generateMetadata({
   const messages = (await import(`../../messages/${locale}.json`)).default
   const t = createTranslator({ locale, messages })
 
+  const title = `${t('Index.title')} ${t('Index.title2')}`
+  const description = t('Index.description')
+
   return {
-    title: `${t('Index.title')} ${t('Index.title2')}`,
-    description: t('Index.description'),
+    title,
+    description,
+    keyworkds: ['Hackathon', 'React', 'Next.js'],
+    authors: [{ name: 'Thibault Friedrich' }],
+    openGraph: {
+      title,
+      description,
+      url: 'https://hackathon-dev-design.vercel.app',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
   }
 }
 
