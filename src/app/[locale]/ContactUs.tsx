@@ -1,5 +1,7 @@
 import { useTranslations } from 'next-intl'
 
+import { emailAddress } from '@/config/contact'
+
 export default function ContactUs() {
   const t = useTranslations('Index')
 
@@ -8,9 +10,9 @@ export default function ContactUs() {
       {t('contact us')}
       <a
         className="font-semibold text-blue-400"
-        href="mailto:thibault.friedrich@gmail.com"
+        href={`mailto:${emailAddress}`}
       >
-        thibault.friedrich@gmail.com
+        {emailAddress}
       </a>
       .
     </>
