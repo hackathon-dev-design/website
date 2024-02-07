@@ -86,7 +86,7 @@ export default function EmailInput({ locale }: EmailInputProps) {
           type="email"
           value={email}
           onChange={(event) => setEmail(event.target.value)}
-          className="relative w-full py-3 px-4 bg-transparent rounded-lg border-2 border-white pr-[135px]"
+          className="relative w-full py-3 px-4 bg-transparent text-white rounded-lg border-2 border-white pr-[135px]"
         />
         <div className="absolute right-0 top-0 bottom-0 p-1.5">
           <button
